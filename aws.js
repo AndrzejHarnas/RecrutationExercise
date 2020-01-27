@@ -7,7 +7,7 @@ const fs =require('fs');
 var bucketName = 'lcloud-427-ts' + uuid.v4();
 var keyName = '4k63ImEjRHoWD2/B/mwZ/7vn+cd5K/+7diOXaVBP';
 
-var bucketPromise = new AWS.S3({apiVersion: '2006-03-01'}).createBucket({Bucket: bucketName}).promise();
+var bucketPromise = new AWS.S3({apiVersion: '2006-03-01'}).createBucket({Bucket: bucketName+'test'}).promise();
 
 bucketPromise.then(
   function(data) {
@@ -32,6 +32,7 @@ s3.listBuckets(function(err, data) {
 });
 
 
+
 const fileName = 'fileToUpload.txt';
 
 const uploadFile = () => {
@@ -50,3 +51,14 @@ const uploadFile = () => {
 };
 
 uploadFile();
+
+var params = {
+ Bucket: 'lcloud-427-ts',
+  Delimiter: '',
+  Prefix: 'file'
+}
+
+s3.listObjects(params, function (err, data) {
+  if(err)throw err;
+  console.log(data);
+});
