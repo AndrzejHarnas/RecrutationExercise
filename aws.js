@@ -38,7 +38,7 @@ const uploadFile = () => {
   fs.readFile(fileName, (err, data) => {
      if (err) throw err;
      const params = {
-         Bucket: 'testBucket',
+         Bucket: 'lcloud-427-ts',
          Key: 'fileToUpload',
          Body: JSON.stringify(data, null, 2)
      };
