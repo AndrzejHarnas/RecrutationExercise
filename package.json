@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "aws-sdk": "^2.610.0",
+    "uuid": "^3.4.0"
+  },
+  "name": "aws-node",
+  "description": "test",
+  "version": "1.0.1",
+  "main": "sample.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Harnas_20",
+  "license": "ISC"
+}
