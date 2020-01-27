@@ -31,8 +31,6 @@ s3.listBuckets(function(err, data) {
   }
 });
 
-
-
 const fileName = 'fileToUpload.txt';
 
 const uploadFile = () => {
@@ -55,10 +53,15 @@ uploadFile();
 var params = {
  Bucket: 'lcloud-427-ts',
   Delimiter: '',
-  Prefix: 'file'
+  Prefix: 'f'
 }
 
 s3.listObjects(params, function (err, data) {
   if(err)throw err;
   console.log(data);
+});
+
+s3.deleteObject(params, function(err, data) {
+  if (err) console.log(err, err.stack);
+  else     console.log(data);
 });
