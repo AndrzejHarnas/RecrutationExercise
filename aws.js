@@ -2,6 +2,8 @@
 var AWS = require('aws-sdk');
 var uuid = require('uuid');
 
+const fs =require('fs');
+
 var bucketName = 'lcloud-427-ts' + uuid.v4();
 var keyName = '4k63ImEjRHoWD2/B/mwZ/7vn+cd5K/+7diOXaVBP';
 
@@ -28,3 +30,23 @@ s3.listBuckets(function(err, data) {
     console.log("Success", data.Buckets);
   }
 });
+
+
+const fileName = 'fileToUpload.txt';
+
+const uploadFile = () => {
+  fs.readFile(fileName, (err, data) => {
+     if (err) throw err;
+     const params = {
+         Bucket: 'testBucket',
+         Key: 'fileToUpload',
+         Body: JSON.stringify(data, null, 2)
+     };
+     s3.upload(params, function(s3Err, data) {
+         if (s3Err) throw s3Err
+         console.log(`File uploaded successfully at ${data.Location}`)
+     });
+  });
+};
+
+uploadFile();

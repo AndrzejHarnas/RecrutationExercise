@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "aws-sdk": "^2.610.0",
+    "fs": "0.0.1-security",
     "uuid": "^3.4.0"
   },
   "name": "lcloud-427-ts",
